@@ -1,7 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+//Tool um über Print über die Console aus zu geben.
+import 'package:flutter/foundation.dart';
+//Import Befehl für Daten aus dem Internet (http & tml) holen
+import 'package:http/http.dart' as http;
+import 'package:html/dom.dart' as dom;
 
 void main() {
   runApp(const MyApp());
+  debugPrint("blabla");
+  print("test");
+}
+
+class _MainPageState {
+  @override
+  void iniState() {
+    getWebsiteData();
+  }
+
+  //Funktion um Daten aus einer Internetseite auslesen
+  Future getWebsiteData() async {
+    final url = Uri.parse('https://www.hb9scbo.ch/de/rufzeichenliste.htm');
+    final response = await http.get(url);
+    dom.Document html = dom.Document.html(response.body);
+
+    final titles = html
+        .querySelectorAll('#content > table')
+        .map((element) => element.innerHtml.trim())
+        .toList();
+
+    print('Count: ${titles.length}');
+    for (final title in titles) {
+      debugPrint(title);
+      debugPrint("test");
+      print("TEST12");
+    }
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -28,10 +62,11 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(255, 200, 183, 229)),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'CB Funk Rufzeichen App'),
     );
   }
 }
