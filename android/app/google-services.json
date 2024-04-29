@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "772457234513",
+    "project_id": "cb-funk-rufzeichenliste",
+    "storage_bucket": "cb-funk-rufzeichenliste.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:772457234513:android:63247d441442e582023870",
+        "android_client_info": {
+          "package_name": "com.example.cb_funk_rufzeichenliste"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6y9Sm4OwIYYMJCZa3ta8XVjAlWAppsbw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
